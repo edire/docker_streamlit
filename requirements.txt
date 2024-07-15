@@ -1,0 +1,2 @@
+streamlit
+git+https://github.com/edire/streamlit-authentication.git
