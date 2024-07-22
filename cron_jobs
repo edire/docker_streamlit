@@ -1,0 +1,6 @@
+# Minute Hour Day-of-Month Month Day-of-Week Command
+# must be ended with a new line "LF" (Unix) and not "CRLF" (Windows)
+
+0 * * * * /cron_git_update.sh >> /var/log/cron.log 2>&1
+
+# An empty line is required at the end of this file for a valid cron file.
