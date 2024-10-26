@@ -1,13 +1,13 @@
 #!/bin/sh
 
 mkdir -p ~/.ssh
-cp /volume/git_mm_docker /volume/git_mm_docker.pub ~/.ssh/
-# echo -e "Host github.com\n\tHostName github.com\n\tUser git\n\tIdentityFile ~/.ssh/git_mm_docker" >> ~/.ssh/config
+cat $SSH_KEY > ~/ssh_key
+chmod 600 ~/ssh_key
 cat <<EOL >> ~/.ssh/config
 Host github.com
     HostName github.com
     User git
-    IdentityFile ~/.ssh/git_mm_docker
+    IdentityFile ~/ssh_key
 EOL
 ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
 git clone -b $GIT_BRANCH --depth 1 $GIT_REPO git_repo
