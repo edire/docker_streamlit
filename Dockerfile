@@ -1,4 +1,4 @@
-FROM python:slim
+FROM python:3.12.5-slim
 
 # Linux Dependencies
 RUN apt-get update && \
@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Python Dependencies
-COPY requirements.txt run.sh ./
+COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
 # Cron Job Dependencies
